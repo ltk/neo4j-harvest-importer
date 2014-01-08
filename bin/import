@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+ROOT_PATH ||= File.expand_path('..', File.dirname(__FILE__))
+Dir["#{ROOT_PATH}/lib/**/*.rb"].each {|file| require file }
+
+def run_import(file_path)
+  Importer.new(file_path).import
+end
+
+run_import(ARGV.first)
