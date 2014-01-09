@@ -10,6 +10,8 @@ class Relationship
   end
 
   def add_to(graph)
+    return unless to_node && from_node
+
     graph.create_unique_relationship(index_name,
                                      key,
                                      value,

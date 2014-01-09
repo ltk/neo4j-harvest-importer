@@ -28,6 +28,7 @@ class Importer
         csv.each do |row|
           records << Harvest::TaskRecord.new(row)
         end
+        csv.close
       end
     end
   end
