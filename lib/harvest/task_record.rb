@@ -50,11 +50,11 @@ module Harvest
 
     def relationship_definitions
       [
-        { from: project, to: client, named: 'belongs_to', identified_by: project.name },
-        { from: person, to: client, named: 'worked_for', identified_by: person.full_name },
+        { from: project, to: client, named: 'belongs_to', identified_by: "#{project.name}_#{client.name}" },
+        { from: person, to: client, named: 'worked_for', identified_by: "#{person.full_name}_#{client.name}" },
         { from: person, to: task, named: 'worked_on', identified_by: "#{person.full_name}_#{task.name}" },
         { from: task, to: project, named: 'part_of', identified_by: task.name },
-        { from: person, to: lab, named: 'belongs_to', identified_by: person.full_name }
+        { from: person, to: lab, named: 'belongs_to', identified_by: "#{person.full_name}_#{lab.name}" }
       ]
     end
 
